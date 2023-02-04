@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>co.edu.unicauca.aplicacion_consumir_servicios_rest</groupId>
+    <artifactId>Aplicacion_consumir_servicios_REST</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <springframework.version>6.0.1</springframework.version>
+        <springsecurity.version>6.0.1</springsecurity.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <exec.mainClass>co.edu.unicauca.aplicacion_consumir_servicios_rest.Aplicacion_consumir_servicios_REST</exec.mainClass>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+            <version>2.23.1</version>
+	</dependency>
+ 
+	 <!-- https://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-client -->
+	 <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>2.23.1</version>
+	 </dependency>
+
+         <dependency>
+            <groupId>javax.activation</groupId>
+             <artifactId>activation</artifactId>
+             <version>1.1.1</version>
+        </dependency>
+        <dependency> 
+            <groupId>javax.xml.bind</groupId> 
+           <artifactId>jaxb-api</artifactId> 
+           <version>2.3.1</version> 
+        </dependency>
+
+ 
+ </dependencies>
+</project>
