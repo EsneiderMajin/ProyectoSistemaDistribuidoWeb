@@ -3,22 +3,28 @@ package vista;
 import java.util.Date;
 import java.util.List;
 import models.Cliente;
+import models.Manager;
 import servicios.ClienteServices;
+import servicios.ManagerServices;
 
 public class Menu {
 
 	public static void main(String[] args) {
 		
 		ClienteServices objClienteServices= new ClienteServices();
-
+                ManagerServices objManagerServices = new ManagerServices();
 
 		
-                /*
-		System.out.println("consultando un cliente con id 1");
-		Cliente objClienteConsultado= objClienteServices.consultarCliente(1);
+                
+		System.out.println("consultando un cliente con username jperez");
+		Cliente objClienteConsultado= objClienteServices.consultarCliente("jperez");
 		imprimirCliente(objClienteConsultado);
 		
-		
+                System.out.println("consultando un cliente con username dgustin");
+		Manager objManagerConsultado= objManagerServices.consultarManager("dgustin");
+		imprimirManager(objManagerConsultado);
+                
+		/*
                 System.out.println("\n listando clientes");
 		List<Cliente> listaDeClientes= objClienteServices.listarClientes();
 		
@@ -60,21 +66,37 @@ public class Menu {
 	    
 	    //System.out.println("\n listando clientes que contiene el cliente eliminado");
             List<Cliente> listaDeClientes= objClienteServices.listarClientes();
-
+            List<Manager> listaDeManagers= objManagerServices.listarManagers();
+            
             for (Cliente cliente : listaDeClientes) {
                     imprimirCliente(cliente);
             }
-               
-	
+            
+            for (Manager manager : listaDeManagers) {
+                    imprimirManager(manager);
+            }
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.setVisible(true);
+           
 	}
 	
 	private static void imprimirCliente(Cliente objCliente)
-	{
-		System.out.println(objCliente.getname());
+	{   
+		System.out.println("Cliente:");
+                System.out.println(objCliente.getname());
 		System.out.println(objCliente.getlastname());
 		System.out.println(objCliente.getPhone());
 		System.out.println(objCliente.getEmail());
 		System.out.println(objCliente.getPassword());
 	}
+        
+        private static void imprimirManager(Manager objManager){
+            System.out.println("Manager:");
+            System.out.println(objManager.getName());
+            System.out.println(objManager.getLastname());
+            System.out.println(objManager.getUsername());
+            System.out.println(objManager.getPassword());
+            
+        }
 
 }

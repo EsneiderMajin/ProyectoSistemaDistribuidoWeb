@@ -25,12 +25,12 @@ public class ClienteServices {
 		this.objClientePeticiones = ClientBuilder.newClient().register(new JacksonFeature());
 	}
 	
-	/* 
+	
 	public Cliente consultarCliente(String username)
 	{
 		Cliente  objCliente=null;	
 		
-		WebTarget target = this.objClientePeticiones.target(this.endPoint+"/"+id);
+		WebTarget target = this.objClientePeticiones.target(this.endPoint+username);
 		
 		Builder objPeticion=target.request(MediaType.APPLICATION_JSON_TYPE);	
 		
@@ -39,7 +39,7 @@ public class ClienteServices {
 		return objCliente;
 	}
 	
-	*/
+	
 	public List<Cliente> listarClientes()
 	{
 		List<Cliente> listaClientes=null;			
