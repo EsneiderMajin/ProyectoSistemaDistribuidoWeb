@@ -14,8 +14,6 @@ public class Menu {
 		ClienteServices objClienteServices= new ClienteServices();
                 ManagerServices objManagerServices = new ManagerServices();
 
-		
-                
 		System.out.println("consultando un cliente con username jperez");
 		Cliente objClienteConsultado= objClienteServices.consultarCliente("jperez");
 		imprimirCliente(objClienteConsultado);
@@ -75,8 +73,20 @@ public class Menu {
             for (Manager manager : listaDeManagers) {
                     imprimirManager(manager);
             }
+                /*
+                System.out.println("\n registrando un Manager");	
+                Manager objManager= new Manager();
+                objManager.setName("Gustavo");
+                objManager.setLastname("Petro");
+                objManager.setUsername("petroman");
+                objManager.setPassword("12345");
+                
+                Manager objManagerRegistrado= objManagerServices.registrarManager(objManager);
+                */
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.setVisible(true);
+            
+            
            
 	}
 	
