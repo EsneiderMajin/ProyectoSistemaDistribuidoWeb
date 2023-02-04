@@ -35,7 +35,7 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtManager = new javax.swing.JTextField();
+        txtUsername = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
         chkMostrarPassword = new javax.swing.JCheckBox();
         btnIngresar = new javax.swing.JButton();
@@ -52,9 +52,9 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Password:");
 
-        txtManager.addActionListener(new java.awt.event.ActionListener() {
+        txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtManagerActionPerformed(evt);
+                txtUsernameActionPerformed(evt);
             }
         });
 
@@ -100,7 +100,7 @@ public class FrmLogin extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPassword)
-                            .addComponent(txtManager))))
+                            .addComponent(txtUsername))))
                 .addGap(69, 69, 69))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -120,7 +120,7 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtManager, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -137,18 +137,22 @@ public class FrmLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtManagerActionPerformed
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtManagerActionPerformed
+    }//GEN-LAST:event_txtUsernameActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
         
-        if(!txtManager.getText().isEmpty()&&!txtPassword.getText().isEmpty()){
+        if(!txtUsername.getText().isEmpty()&&!txtPassword.getText().isEmpty()){
             ManagerServices objManagerServices = new ManagerServices();
             //Manager objManagerConsultado= objManagerServices.consultarManager("dgustin");
-            if(objManagerServices.autentificar(txtManager.getText(),txtPassword.getText())){
+            if(objManagerServices.autentificar(txtUsername.getText(),txtPassword.getText())){
                 JOptionPane.showMessageDialog(this, "Bienvenido");
+                this.dispose();
+                FrmPaginaPrincipal frmPaginaPrincipal = new FrmPaginaPrincipal(objManagerServices.consultarManager(txtUsername.getText()));
+                frmPaginaPrincipal.setVisible(true);
+                
             }else{
                 JOptionPane.showMessageDialog(this, "Usuario o password incorrectos");
             }
@@ -219,7 +223,7 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField txtManager;
     private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
